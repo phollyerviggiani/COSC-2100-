@@ -1,17 +1,7 @@
-using System.Diagnostics;
+// Program file which lets us run the desired program
+Application.SetHighDpiMode(HighDpiMode.SystemAware);
+Application.EnableVisualStyles();
+Application.SetCompatibleTextRenderingDefault(false);
 
-
-string message = "Your Visual Studio environmement looks good. Close this message box?";
-string caption = "Welcome to COSC 2100";
-MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-DialogResult result;
-
-// Displays the MessageBox.
-result = MessageBox.Show(message, caption, buttons);
-while (result != System.Windows.Forms.DialogResult.Yes)
-{
-    Debug.WriteLine("You choose No");
-    result = MessageBox.Show(message, caption, buttons);
-}
-
-Debug.WriteLine("You choose Yes");
+// Chooses which file to run
+Application.Run(new COSC2100.W3Demo.FormControl());
