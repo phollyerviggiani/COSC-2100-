@@ -33,8 +33,9 @@
             // 
             // comboWeekDay
             // 
+            comboWeekDay.DropDownStyle = ComboBoxStyle.DropDownList;
             comboWeekDay.FormattingEnabled = true;
-            comboWeekDay.Location = new Point(379, 83);
+            comboWeekDay.Location = new Point(305, 86);
             comboWeekDay.Name = "comboWeekDay";
             comboWeekDay.Size = new Size(151, 28);
             comboWeekDay.TabIndex = 0;
@@ -47,6 +48,7 @@
             Controls.Add(comboWeekDay);
             Name = "FormControl";
             Text = "FormControl";
+            Load += OnLoad;
             ResumeLayout(false);
         }
 
