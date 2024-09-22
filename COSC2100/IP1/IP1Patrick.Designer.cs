@@ -2,6 +2,7 @@
 {
     partial class IP1Patrick
     {
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             labelFirstInput = new Label();
             textFirstBox = new TextBox();
             labelSecondInput = new Label();
@@ -38,6 +40,7 @@
             buttonExit = new Button();
             labelOutput = new Label();
             textOutputBox = new TextBox();
+            toolTips = new ToolTip(components);
             SuspendLayout();
             // 
             // labelFirstInput
@@ -48,6 +51,7 @@
             labelFirstInput.Size = new Size(74, 20);
             labelFirstInput.TabIndex = 0;
             labelFirstInput.Text = "First Input";
+            toolTips.SetToolTip(labelFirstInput, "First Input");
             // 
             // textFirstBox
             // 
@@ -55,6 +59,7 @@
             textFirstBox.Name = "textFirstBox";
             textFirstBox.Size = new Size(125, 27);
             textFirstBox.TabIndex = 1;
+            toolTips.SetToolTip(textFirstBox, "Enter the first number");
             // 
             // labelSecondInput
             // 
@@ -64,6 +69,7 @@
             labelSecondInput.Size = new Size(96, 20);
             labelSecondInput.TabIndex = 2;
             labelSecondInput.Text = "Second Input";
+            toolTips.SetToolTip(labelSecondInput, "Second Input");
             // 
             // textSecondBox
             // 
@@ -71,6 +77,7 @@
             textSecondBox.Name = "textSecondBox";
             textSecondBox.Size = new Size(125, 27);
             textSecondBox.TabIndex = 3;
+            toolTips.SetToolTip(textSecondBox, "Enter the second number");
             // 
             // buttonAdd
             // 
@@ -79,8 +86,10 @@
             buttonAdd.Size = new Size(94, 29);
             buttonAdd.TabIndex = 4;
             buttonAdd.Text = "Add";
+            toolTips.SetToolTip(buttonAdd, "Click or press ctrl + a to add");
             buttonAdd.UseVisualStyleBackColor = true;
             buttonAdd.Click += OnClickAdd;
+            buttonAdd.KeyDown += buttonAdd_KeyDown;
             // 
             // buttonMultiply
             // 
@@ -89,8 +98,10 @@
             buttonMultiply.Size = new Size(94, 29);
             buttonMultiply.TabIndex = 5;
             buttonMultiply.Text = "Multiply";
+            toolTips.SetToolTip(buttonMultiply, "Click or press ctrl + m to multiply");
             buttonMultiply.UseVisualStyleBackColor = true;
             buttonMultiply.Click += OnClickMultiply;
+            buttonMultiply.KeyDown += buttonMultiply_KeyDown;
             // 
             // buttonReset
             // 
@@ -99,6 +110,7 @@
             buttonReset.Size = new Size(94, 29);
             buttonReset.TabIndex = 6;
             buttonReset.Text = "Reset";
+            toolTips.SetToolTip(buttonReset, "Click or press esc to reset the values");
             buttonReset.UseVisualStyleBackColor = true;
             buttonReset.Click += OnClickReset;
             // 
@@ -109,6 +121,7 @@
             buttonExit.Size = new Size(94, 29);
             buttonExit.TabIndex = 7;
             buttonExit.Text = "Exit";
+            toolTips.SetToolTip(buttonExit, "Click or press F4 to exit");
             buttonExit.UseVisualStyleBackColor = true;
             buttonExit.Click += OnClickExit;
             buttonExit.KeyDown += buttonExit_KeyDown;
@@ -121,6 +134,7 @@
             labelOutput.Size = new Size(55, 20);
             labelOutput.TabIndex = 8;
             labelOutput.Text = "Output";
+            toolTips.SetToolTip(labelOutput, "Output value");
             // 
             // textOutputBox
             // 
@@ -129,6 +143,7 @@
             textOutputBox.ReadOnly = true;
             textOutputBox.Size = new Size(125, 27);
             textOutputBox.TabIndex = 9;
+            toolTips.SetToolTip(textOutputBox, "Displays the sum or product of the two given numbers");
             // 
             // IP1Patrick
             // 
@@ -167,5 +182,6 @@
         private Button buttonExit;
         private Label labelOutput;
         private TextBox textOutputBox;
+        private ToolTip toolTips;
     }
 }

@@ -9,6 +9,8 @@ Application.SetCompatibleTextRenderingDefault(false);
 // Application.Run(new COSC2100.W3Demo.FormControl());
 
 // Chooses which file to run based on the text of currentShow string value
+
+
 string currentShow = "IP1Patrick";
 switch (currentShow)
 {
@@ -25,3 +27,4 @@ switch (currentShow)
         Debug.WriteLine($"{currentShow} is not designed");
         break;
 }
+

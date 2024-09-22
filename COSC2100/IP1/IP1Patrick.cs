@@ -26,8 +26,12 @@ namespace COSC2100.IP1
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
+
+            // Handling the keybinding for exit, add, and multiply
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(buttonExit_KeyDown);
+            this.KeyDown += new KeyEventHandler(buttonAdd_KeyDown);
+            this.KeyDown += new KeyEventHandler(buttonMultiply_KeyDown);
         }
 
         /* 
@@ -166,6 +170,24 @@ namespace COSC2100.IP1
             if (e.KeyCode == Keys.F4)
             {
                 this.Close();
+            }
+        }
+
+        // Assigning the keybinds ctrl + a to executing the add function
+        private void buttonAdd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                OnClickAdd(this, EventArgs.Empty);
+            }
+        }
+
+        // Assigning the keybinds ctrl + m to executing the multuply function
+        private void buttonMultiply_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.M)
+            {
+                OnClickMultiply(this, EventArgs.Empty);
             }
         }
     }
