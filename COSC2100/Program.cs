@@ -11,7 +11,7 @@ Application.SetCompatibleTextRenderingDefault(false);
 // Chooses which file to run based on the text of currentShow string value
 
 
-string currentShow = "IP1Patrick";
+string currentShow = "FormControl";
 switch (currentShow)
 {
     case "TempConversion":

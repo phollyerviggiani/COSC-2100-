@@ -33,7 +33,7 @@ namespace COSC2100.IP1
             this.KeyDown += new KeyEventHandler(buttonAdd_KeyDown);
             this.KeyDown += new KeyEventHandler(buttonMultiply_KeyDown);
         }
-
+        #region Add on click
         /* 
          Upon clicking the add button, sum the two numbers together and display the output in the output box
          If the numbers are invalid, throw an error message and clear the numbers
@@ -87,12 +87,15 @@ namespace COSC2100.IP1
             }
 
         }
+        #endregion
 
+        #region Multiply on click
         /* 
         Upon clicking the multiply button, multiply the two numbers together and display the output in the output box
         If the numbers are invalid, throw an error message and clear the numbers
         Change the input boxes to read only until the reset button is pressed 
         */
+
         private void OnClickMultiply(object sender, EventArgs e)
         {
             // Initializing the first and second box variables
@@ -140,7 +143,9 @@ namespace COSC2100.IP1
                 textSecondBox.Clear();
             }
         }
+        #endregion
 
+        #region reset
         // Function involved with clearing and reseting the data, refocuses on the first texxbox
         private void OnClickReset(object sender, EventArgs e)
         {
@@ -156,14 +161,19 @@ namespace COSC2100.IP1
             // Focueses on the first box
             textFirstBox.Focus();
         }
+        #endregion
 
+
+        #region Exit on click
         // Function involved with exiting the program
         private void OnClickExit(object sender, EventArgs e)
         {
             // Exiting the program
             this.Close();
         }
+        #endregion
 
+        #region keybindings
         // Assigning the keybind F4 to exiting the program
         private void buttonExit_KeyDown(object sender, KeyEventArgs e)
         {
@@ -192,3 +202,4 @@ namespace COSC2100.IP1
         }
     }
 }
+#endregion
