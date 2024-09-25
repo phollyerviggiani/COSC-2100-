@@ -11,7 +11,7 @@ Application.SetCompatibleTextRenderingDefault(false);
 // Chooses which file to run based on the text of currentShow string value
 
 
-string currentShow = "FormControl";
+string currentShow = "Assignment1";
 switch (currentShow)
 {
     case "TempConversion":
@@ -22,6 +22,9 @@ switch (currentShow)
         break;
     case "IP1Patrick":
         Application.Run(new COSC2100.IP1.IP1Patrick());
+        break;
+    case "Assignment1":
+        Application.Run(new COSC2100.Assignment1.Assignment1Patrick());
         break;
     default:
         Debug.WriteLine($"{currentShow} is not designed");
