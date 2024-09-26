@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             labelGameSales = new Label();
             textBoxGameSales = new TextBox();
             textBoxOutputSum = new TextBox();
@@ -37,93 +38,114 @@
             listBoxData = new ListBox();
             labelDayNumber = new Label();
             comboBoxDayNumber = new ComboBox();
+            toolTipAssignment1 = new ToolTip(components);
             SuspendLayout();
             // 
             // labelGameSales
             // 
             labelGameSales.AutoSize = true;
-            labelGameSales.Location = new Point(28, 60);
+            labelGameSales.Location = new Point(24, 37);
             labelGameSales.Name = "labelGameSales";
-            labelGameSales.Size = new Size(129, 20);
+            labelGameSales.Size = new Size(100, 15);
             labelGameSales.TabIndex = 0;
             labelGameSales.Text = "Video Game Sales";
             // 
             // textBoxGameSales
             // 
-            textBoxGameSales.Location = new Point(163, 57);
+            textBoxGameSales.Location = new Point(143, 34);
+            textBoxGameSales.Margin = new Padding(3, 2, 3, 2);
             textBoxGameSales.Name = "textBoxGameSales";
-            textBoxGameSales.Size = new Size(139, 27);
+            textBoxGameSales.Size = new Size(104, 23);
             textBoxGameSales.TabIndex = 1;
+            toolTipAssignment1.SetToolTip(textBoxGameSales, "Enter the amount earned in sales");
             // 
             // textBoxOutputSum
             // 
-            textBoxOutputSum.Location = new Point(28, 396);
+            textBoxOutputSum.Location = new Point(24, 224);
+            textBoxOutputSum.Margin = new Padding(3, 2, 3, 2);
             textBoxOutputSum.Name = "textBoxOutputSum";
             textBoxOutputSum.ReadOnly = true;
-            textBoxOutputSum.Size = new Size(435, 27);
+            textBoxOutputSum.Size = new Size(275, 23);
             textBoxOutputSum.TabIndex = 2;
+            textBoxOutputSum.TextAlign = HorizontalAlignment.Center;
+            toolTipAssignment1.SetToolTip(textBoxOutputSum, "Displays the total weekly earnings");
             // 
             // buttonEnter
             // 
-            buttonEnter.Location = new Point(44, 463);
+            buttonEnter.Location = new Point(24, 274);
+            buttonEnter.Margin = new Padding(3, 2, 3, 2);
             buttonEnter.Name = "buttonEnter";
-            buttonEnter.Size = new Size(94, 29);
+            buttonEnter.Size = new Size(82, 22);
             buttonEnter.TabIndex = 3;
             buttonEnter.Text = "Enter";
+            toolTipAssignment1.SetToolTip(buttonEnter, "Press ctrl + e to enter the value");
             buttonEnter.UseVisualStyleBackColor = true;
             buttonEnter.Click += OnEnter;
+            buttonEnter.KeyDown += buttonEnter_KeyDown;
             // 
             // buttonReset
             // 
-            buttonReset.Location = new Point(190, 463);
+            buttonReset.Location = new Point(121, 274);
+            buttonReset.Margin = new Padding(3, 2, 3, 2);
             buttonReset.Name = "buttonReset";
-            buttonReset.Size = new Size(94, 29);
+            buttonReset.Size = new Size(82, 22);
             buttonReset.TabIndex = 4;
             buttonReset.Text = "Reset";
+            toolTipAssignment1.SetToolTip(buttonReset, "Press esc to reset the window");
             buttonReset.UseVisualStyleBackColor = true;
             buttonReset.Click += OnReset;
             // 
             // buttonExit
             // 
-            buttonExit.Location = new Point(340, 463);
+            buttonExit.Location = new Point(217, 274);
+            buttonExit.Margin = new Padding(3, 2, 3, 2);
             buttonExit.Name = "buttonExit";
-            buttonExit.Size = new Size(94, 29);
+            buttonExit.Size = new Size(82, 22);
             buttonExit.TabIndex = 5;
             buttonExit.Text = "Exit";
+            toolTipAssignment1.SetToolTip(buttonExit, "Press F4 to exit the window");
             buttonExit.UseVisualStyleBackColor = true;
             buttonExit.Click += OnExit;
+            buttonExit.KeyDown += buttonExit_KeyDown;
             // 
             // listBoxData
             // 
             listBoxData.FormattingEnabled = true;
-            listBoxData.ItemHeight = 20;
-            listBoxData.Location = new Point(28, 117);
+            listBoxData.ItemHeight = 15;
+            listBoxData.Location = new Point(24, 78);
+            listBoxData.Margin = new Padding(3, 2, 3, 2);
             listBoxData.Name = "listBoxData";
-            listBoxData.Size = new Size(435, 244);
+            listBoxData.Size = new Size(163, 109);
             listBoxData.TabIndex = 6;
             // 
             // labelDayNumber
             // 
             labelDayNumber.AutoSize = true;
-            labelDayNumber.Location = new Point(324, 60);
+            labelDayNumber.Location = new Point(198, 78);
             labelDayNumber.Name = "labelDayNumber";
-            labelDayNumber.Size = new Size(35, 20);
+            labelDayNumber.Size = new Size(27, 15);
             labelDayNumber.TabIndex = 7;
             labelDayNumber.Text = "Day";
+            toolTipAssignment1.SetToolTip(labelDayNumber, "Select the day number");
             // 
             // comboBoxDayNumber
             // 
+            comboBoxDayNumber.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxDayNumber.FormattingEnabled = true;
-            comboBoxDayNumber.Location = new Point(365, 57);
+            comboBoxDayNumber.Location = new Point(231, 75);
+            comboBoxDayNumber.Margin = new Padding(3, 2, 3, 2);
             comboBoxDayNumber.Name = "comboBoxDayNumber";
-            comboBoxDayNumber.Size = new Size(98, 28);
+            comboBoxDayNumber.Size = new Size(60, 23);
             comboBoxDayNumber.TabIndex = 8;
+            toolTipAssignment1.SetToolTip(comboBoxDayNumber, "Click the dropdown arrow");
             // 
             // Assignment1Patrick
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AcceptButton = buttonEnter;
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(479, 545);
+            CancelButton = buttonReset;
+            ClientSize = new Size(311, 318);
             Controls.Add(comboBoxDayNumber);
             Controls.Add(labelDayNumber);
             Controls.Add(listBoxData);
@@ -133,7 +155,11 @@
             Controls.Add(textBoxOutputSum);
             Controls.Add(textBoxGameSales);
             Controls.Add(labelGameSales);
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Assignment1Patrick";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Average Weekly Video Game Sales";
             Load += OnLoad;
             ResumeLayout(false);
@@ -151,5 +177,6 @@
         private ListBox listBoxData;
         private Label labelDayNumber;
         private ComboBox comboBoxDayNumber;
+        private ToolTip toolTipAssignment1;
     }
 }
