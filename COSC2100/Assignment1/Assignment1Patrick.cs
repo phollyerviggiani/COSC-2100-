@@ -68,11 +68,14 @@ namespace COSC2100.Assignment1
             new DaySales("Day 7", 0)
         };
 
+        // Constant of 7 to divide our sum by to get average later
+        const int TotalDays = 7;
+
         public Assignment1Patrick()
         {
             InitializeComponent();
 
-            // Adding keybinding functionality
+            // Adding keybinding functionality (no reset keybind since already assigned to ESC [cancel button]
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(buttonEnter_KeyDown);
             this.KeyDown += new KeyEventHandler(buttonExit_KeyDown);
@@ -110,8 +113,8 @@ namespace COSC2100.Assignment1
                 // Refresh the list box display
                 ((BindingSource)listBoxData.DataSource).ResetBindings(false);
 
-                // Initalizing the total variable which stones the total of each input
-                double total = dayNumberSales.Sum(day => day.Sales);
+                // Initalizing the total variable which stones the total of each input - dividing by our constant (7) to get average
+                double total = dayNumberSales.Sum(day => day.Sales) / TotalDays;
                 
 
                 // Check if all days have been filled (i.e., no zero values in dayNumberSales)
@@ -127,7 +130,7 @@ namespace COSC2100.Assignment1
                     buttonReset.Focus();
 
                     // Message to show users everything has been inputted
-                    MessageBox.Show("All  inputs have been filled. Please press Reset or 'ESC' to enter new values.", "Information");
+                    MessageBox.Show("All inputs have been filled. Please press Reset or 'ESC' to enter new values.", "Information");
                 }
             }
             // If invalid input, throw and error message then refocus
