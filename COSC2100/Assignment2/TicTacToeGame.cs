@@ -38,6 +38,7 @@ namespace COSC2100.Assignment2
         {
             get { return winner < 0 ? "" : winner == MaxPlayers ? "Draw" : players[winner]; }
         }
+
         public BindingSource GameResult
         {
             get { return bsResult; }

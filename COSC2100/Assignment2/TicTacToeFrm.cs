@@ -68,14 +68,73 @@ namespace COSC2100.Assignment2
         }
         private void OnContinue(object sender, EventArgs e)
         {
-            game.ClearStatus();
-            UpdateStatus();
+            if (!string.IsNullOrEmpty(game.Winner))
+            {
+                // Get the current game count based on the number of items in the listBoxStatus
+                int gameCount = listBoxStatus.Items.Count + 1;
+
+                // Check if it's a draw or a win
+                if (game.Winner == "Draw")
+                {
+                    listBoxStatus.Items.Add($"Game {gameCount}: Draw");
+                }
+                else
+                {
+                    listBoxStatus.Items.Add($"Game {gameCount}: Winner - {game.Winner}");
+                }
+
+                // Reset the game for the next round
+                textPlayer1.Enabled = true;
+                textPlayer2.Enabled = true;
+                textSymbol1.Enabled = true;
+                textSymbol2.Enabled = true;
+                game.ClearStatus();
+                UpdateStatus();
+            }
+            else
+            {
+                MessageBox.Show("The current game is still in progress or hasn't started.");
+            }
         }
 
         private void OnStart(object sender, EventArgs e)
         {
-            game.SetPlayers("Dan", textSymbol1.Text, "Joe", textSymbol2.Text);
+
+            if (textSymbol1.Text == textSymbol2.Text)
+            {
+                MessageBox.Show("Players must choose different symbols!");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textPlayer1.Text) || string.IsNullOrWhiteSpace(textPlayer2.Text))
+            {
+                MessageBox.Show("Please enter names for both players.");
+                return;
+            }
+
+            game.SetPlayers(textPlayer1.Text, textSymbol1.Text, textPlayer2.Text, textSymbol2.Text);
+            textPlayer1.Enabled = false;
+            textPlayer2.Enabled = false;
+            textSymbol1.Enabled = false;
+            textSymbol2.Enabled = false;
             game.Start();
+            UpdateStatus();
+        }
+
+        private void OnLoad(object sender, EventArgs e)
+        {
+            textPlayer1.Text = "Player 1";
+            textPlayer2.Text = "Player 2";
+            textPlayer1.Focus();
+        }
+
+        private void OnReset(object sender, EventArgs e)
+        {
+            textPlayer1.Enabled = true;
+            textPlayer2.Enabled = true;
+            textSymbol1.Enabled = true;
+            textSymbol2.Enabled = true;
+            game.Reset();
             UpdateStatus();
         }
     }

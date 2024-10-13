@@ -32,11 +32,11 @@
             groupBox1 = new GroupBox();
             textSymbol2 = new TextBox();
             label2 = new Label();
-            textBox3 = new TextBox();
+            textPlayer2 = new TextBox();
             label3 = new Label();
             textSymbol1 = new TextBox();
             label4 = new Label();
-            textBox1 = new TextBox();
+            textPlayer1 = new TextBox();
             grpGameArea = new GroupBox();
             textNextPlayer = new TextBox();
             label5 = new Label();
@@ -65,11 +65,11 @@
             // 
             groupBox1.Controls.Add(textSymbol2);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(textPlayer2);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(textSymbol1);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(textPlayer1);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(39, 37);
             groupBox1.Name = "groupBox1";
@@ -96,12 +96,12 @@
             label2.TabIndex = 2;
             label2.Text = "Play 2 Symbol:";
             // 
-            // textBox3
+            // textPlayer2
             // 
-            textBox3.Location = new Point(124, 82);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 1;
+            textPlayer2.Location = new Point(124, 82);
+            textPlayer2.Name = "textPlayer2";
+            textPlayer2.Size = new Size(125, 27);
+            textPlayer2.TabIndex = 1;
             // 
             // label3
             // 
@@ -130,12 +130,12 @@
             label4.TabIndex = 6;
             label4.Text = "Play 1 Symbol:";
             // 
-            // textBox1
+            // textPlayer1
             // 
-            textBox1.Location = new Point(124, 36);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 0;
+            textPlayer1.Location = new Point(124, 36);
+            textPlayer1.Name = "textPlayer1";
+            textPlayer1.Size = new Size(125, 27);
+            textPlayer1.TabIndex = 0;
             // 
             // grpGameArea
             // 
@@ -196,6 +196,7 @@
             btnReset.TabIndex = 11;
             btnReset.Text = "&Reset";
             btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += OnReset;
             // 
             // groupBox3
             // 
@@ -245,6 +246,7 @@
             Controls.Add(groupBox1);
             Name = "TicTacToeFrm";
             Text = "Tic-Tac-Toe";
+            Load += OnLoad;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             grpGameArea.ResumeLayout(false);
@@ -258,10 +260,10 @@
 
         private Label label1;
         private GroupBox groupBox1;
-        private TextBox textBox1;
+        private TextBox textPlayer1;
         private TextBox textSymbol2;
         private Label label2;
-        private TextBox textBox3;
+        private TextBox textPlayer2;
         private Label label3;
         private TextBox textSymbol1;
         private Label label4;
