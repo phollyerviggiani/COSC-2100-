@@ -91,7 +91,24 @@ namespace COSC2100.LectureNotes
           you have to manually bind everything :( (used on assignment 3)
 
 
+        WEEK 7
+        - Method Overloading
+            - Method overloading allows for you to declare multiple methods within the same class
+            - Ex. if we want to make an add function, we can make a function that takes both int and doubles
+                - Two seperarte methods, using two different data types within the same class
+        
+        - Constructor Overloading
+            - Lets the class have multiple constructors
+            - These constructors can have different parameters, lets objects be initalized differently
+            
+        - Encapsulation
+            - Helps to maintain data integrity by controlling the access to to the data
+            - Refers to the bundling of data (attributes) and the methods (functions) that operate on data into agle unit (a class)
+            - Provides a way to restrict unauthorized access and modification of an object's state
    
+        - Inheritance
+            - Concept that allows a class to inherit behaviour from another class
+            - 
         */
 
     }

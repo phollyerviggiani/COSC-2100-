@@ -11,7 +11,7 @@ Application.SetCompatibleTextRenderingDefault(false);
 // Chooses which file to run based on the text of currentShow string value
 
 
-string currentShow = "Assignment2";
+string currentShow = "IP2";
 switch (currentShow)
 {
     case "TempConversion":
@@ -20,8 +20,11 @@ switch (currentShow)
     case "FormControl":
         Application.Run(new COSC2100.W3Demo.FormControl());
         break;
-    case "IP1Patrick":
+    case "IP1":
         Application.Run(new COSC2100.IP1.IP1Patrick());
+        break;
+    case "IP2":
+        Application.Run(new COSC2100.IP2.LoanForm());
         break;
     case "Assignment1":
         Application.Run(new COSC2100.Assignment1.Assignment1Patrick());

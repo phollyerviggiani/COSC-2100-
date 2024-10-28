@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             groupBox1 = new GroupBox();
             textSymbol2 = new TextBox();
@@ -47,6 +48,7 @@
             listBoxStatus = new ListBox();
             textWinner = new TextBox();
             label6 = new Label();
+            toolTipTicTacToe = new ToolTip(components);
             groupBox1.SuspendLayout();
             grpGameArea.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -60,6 +62,7 @@
             label1.Size = new Size(95, 20);
             label1.TabIndex = 0;
             label1.Text = "Play 1 Name:";
+            toolTipTicTacToe.SetToolTip(label1, "Name for player 1");
             // 
             // groupBox1
             // 
@@ -86,6 +89,7 @@
             textSymbol2.TabIndex = 3;
             textSymbol2.Text = "O";
             textSymbol2.TextAlign = HorizontalAlignment.Center;
+            toolTipTicTacToe.SetToolTip(textSymbol2, "Please enter player 2's symbol");
             // 
             // label2
             // 
@@ -95,6 +99,7 @@
             label2.Size = new Size(105, 20);
             label2.TabIndex = 2;
             label2.Text = "Play 2 Symbol:";
+            toolTipTicTacToe.SetToolTip(label2, "Symbol for player 2");
             // 
             // textPlayer2
             // 
@@ -102,6 +107,7 @@
             textPlayer2.Name = "textPlayer2";
             textPlayer2.Size = new Size(125, 27);
             textPlayer2.TabIndex = 1;
+            toolTipTicTacToe.SetToolTip(textPlayer2, "Please enter player 2's name");
             // 
             // label3
             // 
@@ -111,6 +117,7 @@
             label3.Size = new Size(95, 20);
             label3.TabIndex = 4;
             label3.Text = "Play 2 Name:";
+            toolTipTicTacToe.SetToolTip(label3, "Name for player 2");
             // 
             // textSymbol1
             // 
@@ -120,6 +127,7 @@
             textSymbol1.TabIndex = 2;
             textSymbol1.Text = "X";
             textSymbol1.TextAlign = HorizontalAlignment.Center;
+            toolTipTicTacToe.SetToolTip(textSymbol1, "Please enter player 1's symbol");
             // 
             // label4
             // 
@@ -129,6 +137,7 @@
             label4.Size = new Size(105, 20);
             label4.TabIndex = 6;
             label4.Text = "Play 1 Symbol:";
+            toolTipTicTacToe.SetToolTip(label4, "Symbol for player 1");
             // 
             // textPlayer1
             // 
@@ -136,6 +145,7 @@
             textPlayer1.Name = "textPlayer1";
             textPlayer1.Size = new Size(125, 27);
             textPlayer1.TabIndex = 0;
+            toolTipTicTacToe.SetToolTip(textPlayer1, "Please enter player 1's name");
             // 
             // grpGameArea
             // 
@@ -158,6 +168,7 @@
             textNextPlayer.ReadOnly = true;
             textNextPlayer.Size = new Size(125, 27);
             textNextPlayer.TabIndex = 12;
+            toolTipTicTacToe.SetToolTip(textNextPlayer, "Next players turn");
             // 
             // label5
             // 
@@ -175,6 +186,7 @@
             btnStart.Size = new Size(63, 52);
             btnStart.TabIndex = 3;
             btnStart.Text = "&Start";
+            toolTipTicTacToe.SetToolTip(btnStart, "Click to start the games");
             btnStart.UseVisualStyleBackColor = true;
             btnStart.Click += OnStart;
             // 
@@ -185,6 +197,7 @@
             btnContinue.Size = new Size(63, 52);
             btnContinue.TabIndex = 7;
             btnContinue.Text = "&Cont.";
+            toolTipTicTacToe.SetToolTip(btnContinue, "Click to continue after game has concluded");
             btnContinue.UseVisualStyleBackColor = true;
             btnContinue.Click += OnContinue;
             // 
@@ -195,6 +208,7 @@
             btnReset.Size = new Size(63, 52);
             btnReset.TabIndex = 11;
             btnReset.Text = "&Reset";
+            toolTipTicTacToe.SetToolTip(btnReset, "Click or press 'esc' to reset to default");
             btnReset.UseVisualStyleBackColor = true;
             btnReset.Click += OnReset;
             // 
@@ -218,6 +232,7 @@
             listBoxStatus.Name = "listBoxStatus";
             listBoxStatus.Size = new Size(150, 164);
             listBoxStatus.TabIndex = 9;
+            toolTipTicTacToe.SetToolTip(listBoxStatus, "Shows game outcomes");
             // 
             // textWinner
             // 
@@ -226,6 +241,7 @@
             textWinner.ReadOnly = true;
             textWinner.Size = new Size(88, 27);
             textWinner.TabIndex = 0;
+            toolTipTicTacToe.SetToolTip(textWinner, "Shows current game winner");
             // 
             // label6
             // 
@@ -240,11 +256,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnReset;
             ClientSize = new Size(610, 483);
             Controls.Add(groupBox3);
             Controls.Add(grpGameArea);
             Controls.Add(groupBox1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "TicTacToeFrm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tic-Tac-Toe";
             Load += OnLoad;
             groupBox1.ResumeLayout(false);
@@ -286,5 +306,6 @@
         private TextBox textWinner;
         private Label label6;
         private ListBox listBoxStatus;
+        private ToolTip toolTipTicTacToe;
     }
 }

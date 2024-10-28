@@ -14,6 +14,7 @@ namespace COSC2100.Assignment2
     /// </summary>
     public partial class TicTacToeFrm : Form
     {
+        // Setting up the structure, buttons, grid, list, for the tiktactoe game
         private TicTacToeGame game = new();
         private Button[,] btnActions = new Button[TicTacToeGame.Rows, TicTacToeGame.Cols];
         public TicTacToeFrm()
@@ -54,6 +55,8 @@ namespace COSC2100.Assignment2
                 UpdateStatus();
             }
         }
+        // Updating each click showing the text player and winner
+        // Enables the continue button once the game has concluded
         private void UpdateStatus()
         {
             for (int row = 0; row < TicTacToeGame.Rows; row++)
@@ -65,38 +68,20 @@ namespace COSC2100.Assignment2
             }
             textNextPlayer.Text = game.CurrentPlayer;
             textWinner.Text = game.Winner;
+
+            btnContinue.Enabled = !string.IsNullOrEmpty(game.Winner);
         }
+        // On clicking the continue button, clear board for next game and disable the button again
+        // Clicking continue makes it player 1's turn again, regardless of outcome
         private void OnContinue(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(game.Winner))
-            {
-                // Get the current game count based on the number of items in the listBoxStatus
-                int gameCount = listBoxStatus.Items.Count + 1;
-
-                // Check if it's a draw or a win
-                if (game.Winner == "Draw")
-                {
-                    listBoxStatus.Items.Add($"Game {gameCount}: Draw");
-                }
-                else
-                {
-                    listBoxStatus.Items.Add($"Game {gameCount}: Winner - {game.Winner}");
-                }
-
-                // Reset the game for the next round
-                textPlayer1.Enabled = true;
-                textPlayer2.Enabled = true;
-                textSymbol1.Enabled = true;
-                textSymbol2.Enabled = true;
-                game.ClearStatus();
-                UpdateStatus();
-            }
-            else
-            {
-                MessageBox.Show("The current game is still in progress or hasn't started.");
-            }
+            game.ClearStatus();
+            game.Start();
+            UpdateStatus();
+            btnContinue.Enabled = false;
         }
 
+        // On clicking the start button, ensure both names/symbols arent matching and are filled in
         private void OnStart(object sender, EventArgs e)
         {
 
@@ -106,9 +91,22 @@ namespace COSC2100.Assignment2
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textPlayer1.Text) || string.IsNullOrWhiteSpace(textPlayer2.Text))
+            if (textPlayer1.Text == textPlayer2.Text)
+            {
+                MessageBox.Show("Players must choose different names!");
+                return;
+            }
+
+
+                if (string.IsNullOrWhiteSpace(textPlayer1.Text) || string.IsNullOrWhiteSpace(textPlayer2.Text))
             {
                 MessageBox.Show("Please enter names for both players.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textSymbol1.Text) || string.IsNullOrWhiteSpace(textSymbol2.Text))
+            {
+                MessageBox.Show("Please choose symbols for both players.");
                 return;
             }
 
@@ -117,25 +115,37 @@ namespace COSC2100.Assignment2
             textPlayer2.Enabled = false;
             textSymbol1.Enabled = false;
             textSymbol2.Enabled = false;
+            btnContinue.Enabled = false;
+            btnStart.Enabled = false;
             game.Start();
             UpdateStatus();
         }
 
+        // On loading, assign default values to player 1 and 2 names, focus player 1
+        // and disable the continue button
         private void OnLoad(object sender, EventArgs e)
         {
             textPlayer1.Text = "Player 1";
             textPlayer2.Text = "Player 2";
             textPlayer1.Focus();
+            btnContinue.Enabled = false;
         }
 
+        // Upon pressing the reset button, clear board, listbox, and re-enable all buttons
         private void OnReset(object sender, EventArgs e)
         {
             textPlayer1.Enabled = true;
             textPlayer2.Enabled = true;
             textSymbol1.Enabled = true;
             textSymbol2.Enabled = true;
+            btnContinue.Enabled = true;
+            btnStart.Enabled = true;
             game.Reset();
             UpdateStatus();
+
+            game.GameResult.Clear(); 
+            listBoxStatus.DataSource = null;
+            listBoxStatus.DataSource = game.GameResult; 
         }
     }
 }
