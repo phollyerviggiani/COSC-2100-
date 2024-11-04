@@ -109,6 +109,26 @@ namespace COSC2100.LectureNotes
         - Inheritance
             - Concept that allows a class to inherit behaviour from another class
             - 
+
+        WEEK 9 
+            - Data Persistence
+                - Storing data in a file to we can access it later basically
+                - Sharing data between different applications/systems
+                - Typically stored in files/databases, and the cloud
+        
+            - Writing files
+                - File Class (static class)
+                    - Methods:
+                        - Copy (string, string)
+                        - Create (string)
+                        - Exists (string)
+                        - Delete (string)
+                        - there are lots more but they all focus on reading, writing, creating, deleting, etc.
+
+            - 
+
+
+
         */
 
     }

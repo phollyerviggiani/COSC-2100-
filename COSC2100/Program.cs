@@ -11,7 +11,7 @@ Application.SetCompatibleTextRenderingDefault(false);
 // Chooses which file to run based on the text of currentShow string value
 
 
-string currentShow = "IP2";
+string currentShow = "Assignment3";
 switch (currentShow)
 {
     case "TempConversion":
@@ -31,6 +31,9 @@ switch (currentShow)
         break;
     case "Assignment2":
         Application.Run(new COSC2100.Assignment2.TicTacToeFrm());
+        break;
+    case "Assignment3":
+        Application.Run(new COSC2100.Assignment3A.CarServiceFrm());
         break;
     default:
         Debug.WriteLine($"{currentShow} is not designed");
